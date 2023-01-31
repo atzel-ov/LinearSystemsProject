@@ -13,3 +13,15 @@ PART B:
 Designing a Full-State-Feedback controller using pole placement and the Linear Quadratic Regulator method for optimization.
 Designing a Luenberger state observer with pole placement.
 Combining the above to design a full state feedback controller based on observer.
+
+->linear_system_project.m : 
+Contains the main script for getting the simulations.
+
+->ssmodel1.m : 
+Contains the time response of the state of the system for the different inputs we use and for the full-state-feedback controller.
+
+->ssmodel2.m : 
+Contains the dynamics of the estimation error.
+
+->ssmodel3.m : 
+Contains both the dynamics of the longitudinal motion and the dynamics of the state estimator.
