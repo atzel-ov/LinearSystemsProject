@@ -1,8 +1,8 @@
-# Linear Systems 
+# Linear Systems - SYS 411
 
 ![lyapunov-35-test20120303-02-1200x800 (2)](https://user-images.githubusercontent.com/83914255/215894627-18f49387-3279-44ca-a66c-550eb7b4b182.jpg)
 
-Lonitudinal dynamics of an aircraft project.
+# Lonitudinal dynamics of an aircraft 
 
 This project contains 4 MATLAB scripts for analyzing a 4th order non-linear system, linearized about its equilibrium point.
 
