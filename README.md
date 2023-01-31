@@ -1,6 +1,6 @@
 # Linear Systems 
 
-![lyapunov-35-test20120303-02-1200x800](https://user-images.githubusercontent.com/83914255/215892750-cacdca92-27a4-441b-8107-4914af13f0cd.jpg)
+![lyapunov-35-test20120303-02-1200x800 (2)](https://user-images.githubusercontent.com/83914255/215894627-18f49387-3279-44ca-a66c-550eb7b4b182.jpg)
 
 Lonitudinal dynamics of an aircraft project.
 
