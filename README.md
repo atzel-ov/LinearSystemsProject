@@ -7,9 +7,9 @@
 This project contains 4 MATLAB scripts for analyzing a 4th order non-linear system, linearized about its equilibrium point.
 
 PART A :
-Finding eigenvalues, simulating the time response and determing stability, observability and controllability.
+Finding eigenvalues, simulating the time response and determining stability, observability and controllability.
 
 PART B:
-Designing a Full-State-Feedback controller using pole placement and using the Linear Quadratic Regulator method for optimization.
+Designing a Full-State-Feedback controller using pole placement and the Linear Quadratic Regulator method for optimization.
 Designing a Luenberger state observer with pole placement.
 Combining the above to design a full state feedback controller based on observer.
