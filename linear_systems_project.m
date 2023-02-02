@@ -20,7 +20,6 @@ C = [0 0 1 0];
 
 sys = ss(A,B,C,0);
 
-olTf = tf(sys);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,7 +40,6 @@ x0 = [  0       %x0 = (0,+-0.1,0,0)
 
 
 figure
-title('Open-Loop Response to Non-Zero Initial Condition')
 
 subplot(2,2,1)
 plot(t,x(:,1))
@@ -81,7 +79,6 @@ x0 = [  0
 
 
 figure
-title('Open-Loop Response to Zero Initial Condition')
 
 subplot(2,2,1)
 plot(t,x(:,1))
@@ -133,10 +130,7 @@ p4 = -0.01 - (0.095)*1i;
 
 K = place(A,B,[p1 p2 p3 p4]);
 
-
 sys_cl = ss(A-B*K,B,C,0);
-
-clTf = tf(sys_cl);
 
 
 %b
@@ -146,14 +140,14 @@ clTf = tf(sys_cl);
 
 
 x0 = [  0       %x0 = (0,+-0.1,0,0)
-        0.1
+        -0.1
         0
         0];
 
 [t,x] = ode45(@ssmodel1,[0 300],x0);
 
+
 figure
-title('Closed-Loop Response to Non-Zero Initial Condition')
 
 subplot(2,2,1)
 plot(t,x(:,1))
@@ -189,7 +183,6 @@ x0 = [  0
 
 
 figure
-title('Closed-Loop Response to Zero Initial Condition')
 
 subplot(2,2,1)
 plot(t,x(:,1))
@@ -240,7 +233,6 @@ e0 = x0 - x0_hat;
 
 
 figure
-title('State estimate error Dynamics')
 
 subplot(2,2,1)
 plot(t,e(:,1))
@@ -278,13 +270,13 @@ x0_hat = [  0.2
 
 [t,x] = ode45(@ssmodel3,[0 100],[x0 x0_hat]);
 
+
 figure
-title('Full state feedback control using state estimate')
 
 subplot(2, 2, 1)
 plot(t,x(:,1))
 hold on
-plot(t,x(:,5),':r')
+plot(t,x(:,5),'-r')
 legend('x_1','x_1^h^a^t')
 xlabel('Time (Seconds)')
 ylabel('Velocity Difference')
@@ -293,7 +285,7 @@ grid on
 subplot(2, 2, 2)
 plot(t,x(:,2))
 hold on
-plot(t,x(:,6),':r')
+plot(t,x(:,6),'-r')
 legend('x_2','x_2^h^a^t')
 xlabel('Time (Seconds)')
 ylabel('Angle of Attack')
@@ -302,7 +294,7 @@ grid on
 subplot(2, 2, 3)
 plot(t,x(:,3))
 hold on
-plot(t,x(:,7),':r')
+plot(t,x(:,7),'-r')
 legend('x_3','x_3^h^a^t')
 xlabel('Time (Seconds)')
 ylabel('Pitch Rate')
@@ -311,7 +303,7 @@ grid on
 subplot(2, 2, 4)
 plot(t,x(:,4))
 hold on
-plot(t,x(:,8),':r')
+plot(t,x(:,8),'-r')
 legend('x_4','x_4^h^a^t')
 xlabel('Time (Seconds)')
 ylabel('Pitch')
@@ -337,22 +329,24 @@ rank(ctrb(At,Bt))
 
 %theta
 
-
-Q = [ 1  0  0  0
-      0  20 0  0
-      0  0  1  0
-      0  0  0  10];
-
-
-R = 10;
+% The states that matter the most in an aircraft are: the pitch rate q and
+% the pitch θ since such aircrafts should be very accurate. Also the change
+% of speed should be accurate enough and thus the angle of attack.
+Q = [ 5  0  0  0       
+      0  5 0  0
+      0  0  50 0
+      0  0  0  50];
+  
+% an f-16 aircraft may have expensive control but since its use is for
+% military purposes lets assume that the cost is not neither high nor low
+R = 1;                
 
 K = lqr(A,B,Q,R);
 
 sys_lqr = ss(A-B*K,B,C,0);
 
-H = tf(sys_lqr);
 
-optimaPoles = eig(A-B*K);
+[optimalV,optimalPoles] = eig(A-B*K);
 
 
 x0 = [  0       %x0 = (0,+-0.1,0,0)
@@ -360,8 +354,7 @@ x0 = [  0       %x0 = (0,+-0.1,0,0)
         0
         0];
 
-[t,x] = ode45(@ssmodel1,[0 20],x0);
-
+[t,x] = ode45(@ssmodel1,[0 10],x0);
 
 figure
 title('Closed-Loop Response to Non-Zero Initial Condition')
@@ -387,14 +380,11 @@ xlabel('Time (Seconds)')
 ylabel('Pitch')
 
 
+% Comparison of pole placement and lqr cost minimisation
+figure
+step(-1*sys_cl)
+title('Step Response using Pole Placement')
 
-
-
-
-
-
-
-
-
-
-
+figure
+step(-1*sys_lqr)
+title('Step Response using LQR')

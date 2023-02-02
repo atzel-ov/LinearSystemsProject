@@ -37,7 +37,7 @@ p4 = -0.01 - (0.095)*1i;
 K = place(A,B,[p1,p2,p3,p4]);
 
 %b
-r = zeros(size(t));
+%r = zeros(size(t));
 
 %c1
 %r = -1*((t>=0)-(t>=T));
@@ -45,21 +45,21 @@ r = zeros(size(t));
 %c2
 %r = -(t>=0);
 
-u = -K*x + r;
+%u = -K*x + r;
 
 %%%% LQR %%%%
 
-Q = [ 1  0  0  0
-      0  20 0  0
-      0  0  1  0
-      0  0  0  10];
+Q = [ 5  0  0  0
+      0  5 0  0
+      0  0  50 0
+      0  0  0  50];
+  
 
-
-R = 10;
+R = 1;
 
 Klqr = lqr(A,B,Q,R);
 
-%u = -Klqr*x;
+u = -Klqr*x;
 
 
 
