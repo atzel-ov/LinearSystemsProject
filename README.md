@@ -7,7 +7,7 @@
 This project contains 4 MATLAB scripts for analyzing the longitudinal motion of an aircraft. The aircraft can be described by a 4th order non-linear system, linearized around its equilibrium point.
 
 PART A :
-Finding eigenvalues, simulating the time response and determining stability, observability and controllability.
+Finding the eigenvalues of the system, simulating the time response and determining stability, observability and controllability.
 
 PART B:
 Designing a Full-State-Feedback controller using pole placement and the Linear Quadratic Regulator method for optimization.
