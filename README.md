@@ -17,11 +17,11 @@ Combining the above to design a full state feedback controller based on observer
 <a href = "https://github.com/atzel-ov/LinearSystemsProject/blob/main/linear_systems_project.m">linear_system_project.m</a> : 
 Contains the main script for getting the simulations.
 
-->ssmodel1.m : 
+<a href = "https://github.com/atzel-ov/LinearSystemsProject/blob/main/ssmodel1.m">ssmodel1.m</a> : 
 Contains the time response of the state of the system for the different inputs we use and for the full-state-feedback controller.
 
-->ssmodel2.m : 
+<a href = "https://github.com/atzel-ov/LinearSystemsProject/blob/main/ssmodel2.m">ssmodel2.m</a> : 
 Contains the dynamics of the estimation error.
 
-->ssmodel3.m : 
+<a href = "https://github.com/atzel-ov/LinearSystemsProject/blob/main/ssmodel3.m">ssmodel3.m</a> : 
 Contains both the dynamics of the longitudinal motion and the dynamics of the state estimator.
