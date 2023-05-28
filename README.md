@@ -14,7 +14,7 @@ Designing a Full-State-Feedback controller using pole placement and the Linear Q
 Designing a Luenberger state observer with pole placement.
 Combining the above to design a full state feedback controller based on observer.
 
-->linear_system_project.m : 
+<a href = "https://github.com/atzel-ov/LinearSystemsProject/blob/main/linear_systems_project.m">linear_system_project.m</a> : 
 Contains the main script for getting the simulations.
 
 ->ssmodel1.m : 
