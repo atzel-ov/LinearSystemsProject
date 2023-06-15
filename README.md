@@ -4,7 +4,7 @@
 
 ## Aircraft Dynamics Control 
 
->   This project contains 4 MATLAB scripts for analyzing the longitudinal motion of an aircraft. The aircraft can be described by a 4th order non-linear system, linearized around its equilibrium point.
+This project contains 4 MATLAB scripts for analyzing the longitudinal motion of an aircraft. The aircraft can be described by a 4th order non-linear system, linearized around its equilibrium point.
 
 PART A:
 >   Finding the eigenvalues of the system, simulating the time response and determining stability, observability and controllability.
