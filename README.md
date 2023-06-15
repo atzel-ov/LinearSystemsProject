@@ -1,4 +1,4 @@
-# Linear Systems - SYS 411
+# Linear Systems - SYS411
 
 ![lyapunov-35-test20120303-02-1200x800 (2)](https://user-images.githubusercontent.com/83914255/215894627-18f49387-3279-44ca-a66c-550eb7b4b182.jpg)
 
